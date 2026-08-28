@@ -21,10 +21,11 @@ pipeline {
             }
         }
 
-        stage('Check Kubernetes') {
+        stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl version --client'
-                bat 'minikube version'
+                bat 'minikube image load springboot-demo:1.0'
+                bat 'kubectl apply -f deployment.yaml'
+                bat 'kubectl apply -f service.yaml'
             }
         }
     }
