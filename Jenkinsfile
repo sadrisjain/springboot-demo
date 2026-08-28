@@ -21,11 +21,10 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
+        stage('Check Minikube') {
             steps {
-                bat 'minikube image load springboot-demo:1.0'
-                bat 'kubectl apply -f deployment.yaml'
-                bat 'kubectl apply -f service.yaml'
+                bat 'minikube profile list'
+                bat 'minikube status'
             }
         }
     }
