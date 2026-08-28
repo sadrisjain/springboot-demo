@@ -21,4 +21,4 @@ spec:
           image: springboot-demo:1.0
           imagePullPolicy: Never
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
