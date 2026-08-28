@@ -20,5 +20,12 @@ pipeline {
                 bat 'docker build -t springboot-demo:1.0 .'
             }
         }
+
+        stage('Check Kubernetes') {
+            steps {
+                bat 'kubectl version --client'
+                bat 'minikube version'
+            }
+        }
     }
 }
